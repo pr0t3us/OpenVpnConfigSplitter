@@ -7,9 +7,15 @@ android {
     defaultConfig {
         minSdkVersion 8
         targetSdkVersion 8
+//
+//        ndk {
+//            moduleName "securebase_jni"
+//        }
 
-        ndk {
-            moduleName "easysqlite_jni"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
         }
     }
 
@@ -17,6 +23,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
         }
     }
 }
